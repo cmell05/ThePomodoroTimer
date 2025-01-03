@@ -60,6 +60,51 @@ body {
   background-color: #1976d2;
 }
 
+.sessionLog {
+  margin-top: 10px;
+}
+
+.sessionLog ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sessionLog li {
+  background-color: #f2f2f2;
+  margin: 2px 0;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.analytics-stats {
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+}
+
+.stat-item {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.stat-item h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.tasks-list {
+  list-style: none;
+  padding: 0;
+}
+
+.tasks-list li {
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+}
+
+
 /* Timer Display */
 .timer p#sessionDisplay {
   font-size: 5em;
@@ -67,6 +112,7 @@ body {
   font-family: "Roboto Mono", "Courier New", monospace;
   font-weight: 600;
   letter-spacing: 2px;
+  margin-left: auto;
 }
 
 .timer p#status {
