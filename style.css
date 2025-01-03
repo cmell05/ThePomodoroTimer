@@ -18,3 +18,45 @@ body {
   min-height: 100vh;
   backdrop-filter: blur(2px);
 }
+
+/* Header Styles */
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.auth-links {
+  text-align: right;
+  padding: 10px;
+}
+
+.auth-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.auth-links a:hover {
+  text-decoration: underline;
+}
+
+.auth-buttons {
+  margin-top: 10px;
+}
+
+.auth-link {
+  display: inline-block;
+  padding: 8px 20px;
+  margin: 0 10px;
+  background-color: #2196f3;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.auth-link:hover {
+  background-color: #1976d2;
+}
+
