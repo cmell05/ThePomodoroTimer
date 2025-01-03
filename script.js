@@ -134,6 +134,33 @@ analyticsBtn.addEventListener("click", () => {
     mainContainer.style.display = "none";
     analyticsBtn.style.display = "none";
     document.querySelector('.project').style.display = "none";
+   
+    // Fetch analytics data
+    fetch("https://modify-backend-podomoro-cmell05.replit.app/api/analytics", {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      },
+      credentials: 'include'
+    })
+      .then(response => {
+        if (response.status === 401) {
+          const analyticsDiv = document.getElementById('analyticsData');
+          analyticsDiv.innerHTML = `
+            <h2>Please Login to View Analytics</h2>
+            <p>To track your progress, please <a href="login.html">login</a> or <a href="signup.html">sign up</a>.</p>
+          `;
+          throw new Error('Unauthorized');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log("Analytics data fetched successfully:", data);
+      })
+      .catch(error => {
+        console.error("Error fetching analytics:", error);
+      });
+
   }
 });
 
