@@ -66,12 +66,16 @@ Backend
 📖 How to Use
 
 1.Sign Up and Login:
-  Navigate to the signup page, create an account, and log in.
+ • Navigate to the signup page, create an account, and log in.
+
 2.Use the Timer:
-  Click Start to begin the timer. The timer starts with 25 minutes for Work Time. After 25 minutes, the timer automatically switches to a 5-minute Break Time.
-  Use the Reset button to stop the timer and reset it to 25 minutes.
+ • Click Start to begin the timer. The timer starts with 25 minutes for Work Time. After 25 minutes, the timer automatically switches to a 5-minute Break Time.
+ • Use the Reset button to stop the timer and reset it to 25 minutes.
+
 3.Manage Tasks:
-  Add tasks using the input field and mark tasks as complete upon completion
-  Track task completion
+ • Add tasks using the input field and mark tasks as complete upon completion
+  
+ •Track task completion
+
 4.View Analytics:
-  Click on View Analytics to see completed session data, including the number of Pomodoro sessions completed and associated tasks.
+ • Click on View Analytics to see completed session data, including the number of Pomodoro sessions completed and associated tasks.
