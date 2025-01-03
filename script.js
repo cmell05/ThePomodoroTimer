@@ -77,7 +77,7 @@ const projectInput = document.getElementById("projectInput");
 const addProjectBtn = document.getElementById("addProjectBtn");
 const projectList = document.getElementById("projectList");
 
-// Add task functionality
+
 async function addTask() {
   const taskText = projectInput.value.trim();
   if (taskText) {
@@ -94,7 +94,40 @@ async function addTask() {
 
       if (response.ok) {
         const listItem = document.createElement("li");
-        listItem.textContent = taskText;
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.addEventListener('change', async (e) => {
+          try {
+            const response = await fetch(`https://modify-backend-podomoro-cmell05.replit.app/api/tasks/${encodeURIComponent(taskText)}/complete`, {
+              method: 'PUT',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+              },
+              body: JSON.stringify({ completed: e.target.checked })
+            });
+
+            if (response.ok) {
+              updateAnalytics(); // Update analytics when task is completed
+              if (e.target.checked) {
+                listItem.classList.add('completed-task');
+              } else {
+                listItem.classList.remove('completed-task');
+              }
+            } else {
+              throw new Error('Failed to update task');
+            }
+          } catch (error) {
+            console.error('Error updating task:', error);
+            e.target.checked = !e.target.checked;
+            alert('Error updating task status');
+          }
+        });
+
+        const span = document.createElement("span");
+        span.textContent = taskText;
+        listItem.appendChild(checkbox);
+        listItem.appendChild(span);
         projectList.appendChild(listItem);
         projectInput.value = ""; // Clear input field
       } else {
@@ -106,6 +139,47 @@ async function addTask() {
     }
   }
 }
+
+async function updateAnalytics() {
+  try {
+    const response = await fetch('https://modify-backend-podomoro-cmell05.replit.app/api/analytics', {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      },
+      credentials: 'include'
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    analyticsDiv.innerHTML = `
+      <h2>Your Analytics Data</h2>
+      <div class="analytics-stats">
+        <div class="stat-item">
+          <h3>Tasks Completed</h3>
+          <p>${data.sessions || 0}</p>
+          <ul class="completed-tasks-list">
+            ${data.completedTasks ? data.completedTasks.map(task => `
+              <li>
+                <span class="task-name">${task.task}</span>
+                <span class="completion-date">${new Date(task.completedAt).toLocaleDateString()}</span>
+              </li>
+            `).join('') : ''}
+          </ul>
+        </div>
+        <div class="stat-item">
+          <h3>Total Time Worked</h3>
+          <p>${Math.floor((data.totalMinutes || 0) / 25)} sessions (${data.totalMinutes || 0} minutes)</p>
+        </div>
+      </div>
+    `;
+  } catch (error) {
+    console.error("Error fetching analytics data:", error);
+    analyticsDiv.innerHTML = "<p>Error loading analytics data.</p>";
+  }
+}
+
 
 // Event listener for adding a task
 addProjectBtn.addEventListener("click", addTask);
@@ -163,14 +237,13 @@ analyticsBtn.addEventListener("click", () => {
               <h3>Sessions Completed</h3>
               <p>${data.sessions || 0}</p>
             </div>
-            <div class="stat-item">
-              <h3>Total Time Worked</h3>
-              <p>${Math.floor((data.totalMinutes || 0) / 25)} sessions (${data.totalMinutes || 0} minutes)</p>
-            </div>
+            
             <div class="stat-item">
               <h3>Tasks Accomplished</h3>
               <ul class="tasks-list">
-                ${(data.tasks || []).map(task => `<li>${task}</li>`).join('')}
+                ${data.completedTasks ? data.completedTasks.map(task => 
+                  `<li>${task.taskName} (Completed: ${new Date(task.completedAt).toLocaleDateString()})</li>`
+                ).join('') : ''}
               </ul>
             </div>
           </div>

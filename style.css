@@ -103,6 +103,32 @@ body {
   padding: 5px 0;
   border-bottom: 1px solid #eee;
 }
+.completed-task {
+  text-decoration: line-through;
+  color: #666;
+}
+
+.completed-tasks-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.completed-tasks-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.task-name {
+  font-weight: 500;
+}
+
+.completion-date {
+  color: #666;
+  font-size: 0.9em;
+}
 
 
 /* Timer Display */
