@@ -21,5 +21,36 @@ function formatTime(seconds) {
     .padStart(2, "0")}`;
 }
 
-// Initialize display
-updateDisplay();
+// Update the timer display
+function updateDisplay() {
+  sessionDisplay.textContent = formatTime(currentTime);
+  statusDisplay.textContent = isWorkTime ? "Work Time" : "Break Time";
+}
+
+// Start/stop timer functionality
+function toggleTimer() {
+  if (isRunning) {
+    clearInterval(timer);
+    isRunning = false;
+    startStopBtn.textContent = "Start";
+  } else {
+    timer = setInterval(() => {
+      if (currentTime > 0) {
+        currentTime--;
+        updateDisplay();
+      } else {
+        // Switch between work and break
+        isWorkTime = !isWorkTime;
+        currentTime = isWorkTime ? workDuration : breakDuration;
+        updateDisplay();
+        alert(
+          isWorkTime
+            ? "Work session complete! Time for a break!"
+            : "Break over! Back to work!"
+        );
+      }
+    }, 1000);
+    isRunning = true;
+    startStopBtn.textContent = "Pause";
+  }
+}
