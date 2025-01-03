@@ -60,3 +60,50 @@ body {
   background-color: #1976d2;
 }
 
+/* Timer Display */
+.timer p#sessionDisplay {
+  font-size: 5em;
+  margin-bottom: 10px;
+  font-family: "Roboto Mono", "Courier New", monospace;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.timer p#status {
+  font-size: 1.2em;
+  color: black;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-weight: 600;
+}
+
+/* Button Styles */
+button {
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  cursor: pointer;
+  border-radius: 15px;
+  margin: 5px;
+  font-size: 1.2em;
+}
+
+#startStopBtn {
+  background-color: #0eda1e;
+  margin-right: 20px;
+}
+
+#startStopBtn:hover {
+  background-color: #35cf23;
+}
+
+#resetBtn {
+  background-color: #ea1212;
+  margin-left: 20px;
+}
+
+#resetBtn:hover {
+  background-color: #d70e0e;
+}
+
+
