@@ -192,4 +192,31 @@ backBtn.addEventListener("click", () => {
   document.querySelector('.project').style.display = "block";
 });
 
+// Fetch timer settings from backend
+fetch("https://modify-backend-podomoro-cmell05.replit.app/api/timer", {
+  headers: {
+    'Authorization': `Bearer ${localStorage.getItem('token')}`,
+    'Content-Type': 'application/json'
+  },
+  credentials: 'include'
+})
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Failed to fetch timer settings');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log("Timer settings:", data);
+    if (data.workDuration) workDuration = data.workDuration;
+    if (data.breakDuration) breakDuration = data.breakDuration;
+    currentTime = workDuration;
+    updateDisplay();
+  })
+  .catch(error => {
+    console.error("Error fetching timer:", error);
+    // Use default values if API fails
+    updateDisplay();
+  });
+
 
