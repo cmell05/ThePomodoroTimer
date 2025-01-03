@@ -155,11 +155,32 @@ analyticsBtn.addEventListener("click", () => {
         return response.json();
       })
       .then(data => {
-        console.log("Analytics data fetched successfully:", data);
+        const analyticsDiv = document.getElementById('analyticsData');
+        analyticsDiv.innerHTML = `
+          <h2>Your Analytics Data</h2>
+          <div class="analytics-stats">
+            <div class="stat-item">
+              <h3>Sessions Completed</h3>
+              <p>${data.sessions || 0}</p>
+            </div>
+            <div class="stat-item">
+              <h3>Total Time Worked</h3>
+              <p>${Math.floor((data.totalMinutes || 0) / 25)} sessions (${data.totalMinutes || 0} minutes)</p>
+            </div>
+            <div class="stat-item">
+              <h3>Tasks Accomplished</h3>
+              <ul class="tasks-list">
+                ${(data.tasks || []).map(task => `<li>${task}</li>`).join('')}
+              </ul>
+            </div>
+          </div>
+        `;
       })
       .catch(error => {
         console.error("Error fetching analytics:", error);
+        document.getElementById('analyticsData').innerHTML = '<p>Error loading analytics data</p>';
       });
+
 
   }
 });
