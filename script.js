@@ -117,3 +117,9 @@ projectInput.addEventListener("keypress", (event) => {
   }
 });
 
+// Analytics functionality
+const analyticsBtn = document.getElementById("analyticsBtn");
+const analyticsSection = document.getElementById("analyticsSection");
+const mainContainer = document.querySelector(".container");
+const backBtn = document.getElementById("backBtn");
+
