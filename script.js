@@ -54,3 +54,20 @@ function toggleTimer() {
     startStopBtn.textContent = "Pause";
   }
 }
+
+// Reset timer functionality
+function resetTimer() {
+  clearInterval(timer);
+  isRunning = false;
+  isWorkTime = true;
+  currentTime = workDuration;
+  startStopBtn.textContent = "Start";
+  updateDisplay();
+}
+
+// Initialize display
+updateDisplay();
+
+// Add event listeners for the timer
+startStopBtn.addEventListener("click", toggleTimer);
+resetBtn.addEventListener("click", resetTimer);
