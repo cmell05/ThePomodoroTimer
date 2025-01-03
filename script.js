@@ -123,3 +123,25 @@ const analyticsSection = document.getElementById("analyticsSection");
 const mainContainer = document.querySelector(".container");
 const backBtn = document.getElementById("backBtn");
 
+analyticsBtn.addEventListener("click", () => {
+  const token = localStorage.getItem('token');
+  if (!token) {
+    alert('Please login or sign up to view analytics');
+    return;
+  }
+  if (analyticsSection.style.display === "none") {
+    analyticsSection.style.display = "block";
+    mainContainer.style.display = "none";
+    analyticsBtn.style.display = "none";
+    document.querySelector('.project').style.display = "none";
+  }
+});
+
+backBtn.addEventListener("click", () => {
+  analyticsSection.style.display = "none";
+  mainContainer.style.display = "block";
+  analyticsBtn.style.display = "block";
+  document.querySelector('.project').style.display = "block";
+});
+
+
