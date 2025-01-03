@@ -144,4 +144,66 @@ li {
   border-radius: 5px;
 }
 
+/* Analytics Section */
+.analytics-container {
+  width: 80%;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#analyticsBtn {
+  background-color: #673ab7;
+  margin: 0 20px;
+}
+
+#analyticsBtn:hover {
+  background-color: #5e35b1;
+}
+
+.back-button {
+  background-color: #ff5722;
+  margin-top: 20px;
+}
+
+.back-button:hover {
+  background-color: #f4511e;
+}
+
+/* Authentication Section */
+.auth-container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.auth-container input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.auth-container button {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.auth-container a {
+  color: #2196f3;
+  text-decoration: none;
+}
+
+.auth-container a:hover {
+  text-decoration: underline;
+}
+
+
 
