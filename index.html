@@ -1,16 +1,32 @@
+
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>replit</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Pomodoro Timer</title>
 </head>
-
 <body>
-  Hello world
-  <script src="script.js"></script>
-</body>
+  <div class="header">
+    <div class="auth-links">
+      <a href="login.html">Login</a> | 
+      <a href="signup.html">Sign up</a>
+    </div>
+    <h1>Pomodoro Timer</h1>
+  </div>
 
+  <div class="container">
+    <div class="timer">
+      <p id="sessionDisplay">25:00</p>
+      <p id="status">Work Time</p>
+      <div class="controls">
+        <button id="startStopBtn">Start</button>
+        <button id="resetBtn">Reset</button>
+        <button id="analyticsBtn">View Analytics</button>
+      </div>
+    </div>
+
+    
+</body>
 </html>
