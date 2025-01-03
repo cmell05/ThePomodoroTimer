@@ -71,3 +71,49 @@ updateDisplay();
 // Add event listeners for the timer
 startStopBtn.addEventListener("click", toggleTimer);
 resetBtn.addEventListener("click", resetTimer);
+
+// Task (Project) Management
+const projectInput = document.getElementById("projectInput");
+const addProjectBtn = document.getElementById("addProjectBtn");
+const projectList = document.getElementById("projectList");
+
+// Add task functionality
+async function addTask() {
+  const taskText = projectInput.value.trim();
+  if (taskText) {
+    try {
+      const response = await fetch('https://modify-backend-podomoro-cmell05.replit.app/api/tasks', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        },
+        credentials: 'include',
+        body: JSON.stringify({ task: taskText })
+      });
+
+      if (response.ok) {
+        const listItem = document.createElement("li");
+        listItem.textContent = taskText;
+        projectList.appendChild(listItem);
+        projectInput.value = ""; // Clear input field
+      } else {
+        alert('Failed to add task');
+      }
+    } catch (error) {
+      console.error('Error adding task:', error);
+      alert('Failed to add task');
+    }
+  }
+}
+
+// Event listener for adding a task
+addProjectBtn.addEventListener("click", addTask);
+
+// Optional: Allow pressing 'Enter' to add task
+projectInput.addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    addTask();
+  }
+});
+
