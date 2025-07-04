@@ -40,32 +40,29 @@ pomodoro-timer/ ├── index.html │ ├── style.css │ ├── scrip
 ---
 
 ## 🛠️ Built With
-Frontend
-  HTML
-  CSS
-  JavaScript
 
-Backend
-  Node.js
-  Express.js
-  MongoDB (Mongoose for schema modeling)
-  JSON Web Tokens (JWT) for authentication
+**Frontend:** HTML, CSS, JavaScript  
+**Backend:** Node.js, Express.js, MongoDB (Mongoose for schema modeling), JSON Web Tokens (JWT) for authentication
 
 ---
     
-📖 How to Use
+## 📖 How to Use
 
-1.Sign Up and Login:
- • Navigate to the signup page, create an account, and log in.
+1. **Sign Up and Login**  
+   - Navigate to the signup page  
+   - Create an account and log in
 
-2.Use the Timer:
- • Click Start to begin the timer. The timer starts with 25 minutes for Work Time. After 25 minutes, the timer automatically switches to a 5-minute Break Time.
- • Use the Reset button to stop the timer and reset it to 25 minutes.
+2. **Use the Timer**  
+   - Click **Start** to begin the timer  
+   - The timer starts with 25 minutes for Work Time  
+   - After 25 minutes, it automatically switches to a 5-minute Break Time  
+   - Use the **Reset** button to stop and reset the timer
 
-3.Manage Tasks:
- • Add tasks using the input field and mark tasks as complete upon completion
-  
- •Track task completion
+3. **Manage Tasks**  
+   - Add tasks using the input field  
+   - Mark tasks as complete  
+   - Track task completion
 
-4.View Analytics:
- • Click on View Analytics to see completed session data, including the number of Pomodoro sessions completed and associated tasks.
+4. **View Analytics**  
+   - Click on **View Analytics**  
+   - See completed session data including the number of Pomodoro sessions completed and associated tasks
