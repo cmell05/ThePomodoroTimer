@@ -35,18 +35,8 @@ pomodoro-timer/ ├── index.html │ ├── style.css │ ├── scrip
 
 ---
 
-### **Frontend Setup**
+### **Setup**
 1. Open `index.html` in your browser to use the app.
----
-### **Backend Setup**
-The backend for this Pomodoro Timer project is hosted in a separate repository.
-
-1.Backend Code Repository:
-https://replit.com/@cmell05/modify-backend-podomoro
-
-2.Live API Endpoint:
-https://modify-backend-podomoro-cmell05.replit.app
-
 ---
 
 ## 🛠️ Built With
