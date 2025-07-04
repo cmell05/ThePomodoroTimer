@@ -21,7 +21,19 @@ A productivity web application that implements the **Pomodoro Technique**, helpi
 ---
 
 ## 📁 Folder Structure
-<pre lang="markdown"> ## 📁 Folder Structure ``` pomodoro-timer/ ├── index.html ├── login.html ├── signup.html ├── style.css ├── script.js ├── auth.js ├── config.js ├── sakura.jpg ├── README.md ├── package.json ├── .gitignore └── .replit ``` </pre> 
+pomodoro-timer/
+├── index.html
+├── login.html
+├── signup.html
+├── style.css
+├── script.js
+├── auth.js
+├── config.js
+├── sakura.jpg
+├── README.md
+├── package.json
+├── .gitignore
+└── .replit
 
 ---
 
